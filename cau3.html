@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cau 3 - JSON and While Loop</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #ffffff; color: #333; }
+  </style>
+</head>
+<body>
+
+<div id="courses-container"></div>
+
+<script>
+  var khoaHocJSON = '[' +
+    '{"tenKhoaHoc":"Tieng Anh Giao Tiep","moTa":"Phat trien ky nang noi va nghe tu co ban den nang cao.","hocPhi":"3.500.000 VND","khai":"01/06/2025"},' +
+    '{"tenKhoaHoc":"Luyen Thi IELTS 6.5+","moTa":"Lo trinh luyen thi IELTS bai ban, chien thuat thuc chien.","hocPhi":"5.800.000 VND","khai":"15/06/2025"},' +
+    '{"tenKhoaHoc":"Tieng Anh Thuong Mai","moTa":"Giao tiep doanh nghiep, viet email chuyen nghiep quoc te.","hocPhi":"4.200.000 VND","khai":"10/06/2025"},' +
+    '{"tenKhoaHoc":"Phat Am Chuan My","moTa":"Tap trung phat am, ngu dieu chuan ban ngu, tu tin noi.","hocPhi":"2.000.000 VND","khai":"20/06/2025"}' +
+  ']';
+
+  var danhSach = JSON.parse(khoaHocJSON);
+  var container = document.getElementById('courses-container');
+
+  var i = 0;
+  while (i < danhSach.length) {
+    var kh = danhSach[i];
+    var div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML =
+      '<h3>' + kh.tenKhoaHoc + '</h3>' +
+      '<p>' + kh.moTa + '</p>' +
+      '<p class="price">' + kh.hocPhi + '</p>' +
+      '<p class="date">Khai: ' + kh.khai + '</p>';
+    container.appendChild(div);
+    i++;
+  }
+</script>
+
+</body>
+</html>

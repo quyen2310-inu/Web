@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Learning</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #ffffff; color: #222; }
+
+    /* ============================================================
+       CAU 1 — HEADER + NAVIGATION
+       (Copy CSS nay + phan HTML header/nav sang cau1.html)
+    ============================================================ */
+    header {
+      background: #2fcbff;
+      border-bottom: 3px solid #ffe700;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    header svg { width: 50px; height: 50px; }
+    .header-text h1 {
+      color: black;
+      font-size: 1.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    /* CAU 5: Slogan bo sung ben duoi ten website */
+    .header-text p {
+      color: #00b253;
+      font-size: 0.82rem;
+      margin-top: 3px;
+      letter-spacing: 1px;
+    }
+
+    /* Navigation dung the div */
+    nav {
+      background: #00e56b;
+      padding: 0 40px;
+    }
+    .nav-inner { display: flex; }
+    .nav-inner div a {
+      display: block;
+      padding: 13px 20px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav-inner div a:hover {
+      background: #2fcbff;
+      color: #ffffff;
+      border-bottom-color: #ffe700;
+    }
+    /* ============================================================
+       KET THUC CAU 1
+    ============================================================ */
+
+
+    /* ============================================================
+       CAU 2 — CSS CLASS ITEM & ADVERT
+       (Copy CSS nay + phan HTML div.advert / div.item sang cau2.html)
+    ============================================================ */
+
+    /* CSS class item: do rong, chieu cao, mau nen */
+    .item {
+      width: 210px;
+      height: 190px;
+      background-color: #00e56b;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 20px 14px;
+      text-align: center;
+      border-top: 4px solid #ffe700;
+      flex-shrink: 0;
+    }
+    .item h3 { font-size: 0.95rem;color: black; margin-bottom: 8px; }
+    .item p   { font-size: 0.78rem;color: white; line-height: 1.6; margin-bottom: 6px; }
+    .item .price { font-size: 0.85rem;color: #ffe700; font-weight: bold; }
+    .item .date  { font-size: 0.75rem;color: #2f63ff; }
+
+    /* CSS class advert: 100%, 200px, border 2px solid,
+       mau nen #e8fff3 va mau vien #00e56b — khac voi mau item */
+    .advert {
+      width: 100%;
+      height: 200px;
+      background-color: #e8fff3;
+      border: 2px solid #00e56b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #00b253;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+      /* CAU 5: transition cho hover */
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+      cursor: default;
+    }
+    /* CAU 5: hover doi mau nen, mau vien, chu in nghieng */
+    .advert:hover {
+      background-color: #00e56b;
+      border-color: #ffe700;
+      color: #ffffff;
+      font-style: italic;
+    }
+    /* ============================================================
+       KET THUC CAU 2
+    ============================================================ */
+
+
+    /* Layout chung */
+    section { padding: 52px 40px; }
+    .sec-title {
+      color: #2f63ff;
+      font-size: 1.4rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .sec-line {
+      width: 48px;
+      height: 3px;
+      background: #ffe700;
+      margin: 8px auto 28px;
+      border-radius: 2px;
+    }
+    .sec-sub { text-align: center; color: #888; font-size: 0.85rem; margin-bottom: 32px; }
+
+    /* CAU 5: Flexbox 4 item tren 1 hang, can giua man hinh */
+    #courses-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 18px;
+    }
+
+
+    /* ============================================================
+       CAU 4 — FORM DANG KY + VALIDATION + RESPONSIVE
+       (Copy CSS nay + HTML form + script validate sang cau4.html)
+    ============================================================ */
+    .form-section { background: #f4f7ff; }
+
+    .form-wrap {
+      background: #ffffff;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 32px 36px;
+      border-radius: 8px;
+      border: 1px solid #e0e8ff;
+      border-top: 4px solid #2f63ff;
+      box-shadow: 0 4px 16px rgba(47,99,255,0.08);
+    }
+    .form-group { margin-bottom: 15px; }
+    label {
+      display: block;
+      font-weight: bold;
+      color: #2f63ff;
+      margin-bottom: 5px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px 13px;
+      border: 1px solid #ccd6ff;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-family: Arial, sans-serif;
+      background: #f9fbff;
+      color: #222;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus { border-color: #2f63ff; background: #ffffff; }
+    input.error, select.error { border-color: #ff4444; }
+    .err { display: none; color: #ff4444; font-size: 0.78rem; margin-top: 3px; }
+    .err.show { display: block; }
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background: #2f63ff;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 6px;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #00e56b; color: #ffffff; }
+    .success {
+      display: none;
+      margin-top: 12px;
+      background: #e8fff3;
+      border: 2px solid #00e56b;
+      color: #00b253;
+      padding: 12px;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #2fcbff;
+      color: #c8daff;
+      text-align: center;
+      padding: 22px;
+      font-size: 0.85rem;
+    }
+    footer span { color: #ffe700; font-weight: bold; }
+
+    /* RESPONSIVE */
+    /* May tinh - 1440px */
+    @media (min-width: 1200px) {
+      header, nav, section { padding-left: 80px; padding-right: 80px; }
+      .form-wrap { max-width: 560px; }
+    }
+    /* May tinh bang - 1024px */
+    @media (max-width: 1199px) and (min-width: 600px) {
+      #courses-container { flex-wrap: wrap; }
+      .item { width: 185px; }
+    }
+    /* Dien thoai - 414px */
+    @media (max-width: 599px) {
+      header { padding: 14px 16px; }
+      nav { padding: 0; overflow-x: auto; }
+      .nav-inner { min-width: max-content; }
+      .nav-inner div a { padding: 10px 13px; font-size: 0.8rem; }
+      section { padding: 36px 16px; }
+      #courses-container { flex-wrap: wrap; justify-content: center; }
+      .item { width: 160px; height: auto; }
+      .advert { height: auto; padding: 24px 16px; font-size: 0.95rem; }
+      .form-wrap { padding: 22px 16px; }
+    }
+    /* ============================================================
+       KET THUC CAU 4
+    ============================================================ */
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       CAU 1: HEADER + NAVIGATION
+       (Copy the header, nav va CSS phan CAU 1 sang cau1.html)
+  ============================================================ -->
+  <header>
+    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+      <rect width="50" height="50" rx="8" fill="black"/>
+      <circle cx="25" cy="25" r="18" fill="#2fcbff"/>
+      <text x="13" y="31" font-family="Arial" font-size="18" font-weight="bold" fill="black">EL</text>
+    </svg>
+    <div class="header-text">
+      <h1>English Learning</h1>
+      <!-- CAU 5: Slogan bo sung -->
+      <p>Mo rong the gioi — Ket noi tuong lai</p>
+    </div>
+  </header>
+
+  <!-- Navigation dung the div — bo Tai lieu, Blog -->
+  <nav>
+    <div class="nav-inner">
+      <div><a href="#">Trang chu</a></div>
+      <div><a href="#s-courses">Khoa hoc</a></div>
+      <div><a href="#s-form">Dang ky</a></div>
+    </div>
+  </nav>
+  <!-- ============================================================
+       KET THUC CAU 1
+  ============================================================ -->
+
+
+  <!-- ============================================================
+       CAU 2: ADVERT
+       CAU 5: hover doi mau nen + mau vien + chu in nghieng
+       (Copy div.advert va CSS phan CAU 2 sang cau2.html)
+  ============================================================ -->
+  <section style="background: #ffffff;">
+    <p class="sec-title">Uu Dai Dac Biet</p>
+    <div class="sec-line"></div>
+    <p class="sec-sub">Ap dung den 30/06/2025 — Co hoi co han!</p>
+    <div class="advert">
+      🎯 &nbsp; Giam 30% hoc phi tat ca khoa hoc trong thang 6 — Dang ky ngay hom nay!
+    </div>
+  </section>
+  <!-- ============================================================
+       KET THUC CAU 2
+  ============================================================ -->
+
+
+  <!-- ============================================================
+       CAU 3: JSON + WHILE LOOP render ra div
+       CAU 2: dung CSS .item
+       CAU 5: flexbox 4 item tren 1 hang, can giua man hinh
+       (Copy div#courses-container, CSS .item va script render sang cau3.html)
+  ============================================================ -->
+  <section id="s-courses" style="background: #f4f7ff;">
+    <p class="sec-title">Khoa Hoc Noi Bat</p>
+    <div class="sec-line"></div>
+    <p class="sec-sub">Chon lo trinh phu hop voi muc tieu cua ban</p>
+    <div id="courses-container"></div>
+  </section>
+  <!-- ============================================================
+       KET THUC CAU 3
+  ============================================================ -->
+
+
+  <!-- ============================================================
+       CAU 4: FORM DANG KY + JS VALIDATION
+       (Copy section nay, CSS phan CAU 4 va script validate sang cau4.html)
+  ============================================================ -->
+  <section class="form-section" id="s-form">
+    <p class="sec-title">Dang Ky Khoa Hoc</p>
+    <div class="sec-line"></div>
+    <p class="sec-sub">Dien thong tin, chung toi se lien he trong 24h</p>
+    <div class="form-wrap">
+      <form id="myForm" novalidate>
+
+        <div class="form-group">
+          <label for="ten">Ho va ten *</label>
+          <input type="text" id="ten" placeholder="Nguyen Van A">
+          <span class="err" id="e-ten">Vui long nhap ho va ten (it nhat 3 ky tu).</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Dia chi email *</label>
+          <input type="email" id="email" placeholder="example@email.com">
+          <span class="err" id="e-email">Vui long nhap email hop le.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="sdt">So dien thoai *</label>
+          <input type="tel" id="sdt" placeholder="0901234567">
+          <span class="err" id="e-sdt">So dien thoai 10 chu so, bat dau bang 0.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="khoahoc">Khoa hoc *</label>
+          <select id="khoahoc">
+            <option value="">-- Chon khoa hoc --</option>
+            <option value="gt">Tieng Anh Giao Tiep</option>
+            <option value="ielts">Luyen Thi IELTS 6.5+</option>
+            <option value="tm">Tieng Anh Thuong Mai</option>
+            <option value="pa">Phat Am Chuan Anh-My</option>
+          </select>
+          <span class="err" id="e-khoahoc">Vui long chon khoa hoc.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="thoigian">Thoi gian uu tien *</label>
+          <select id="thoigian">
+            <option value="">-- Chon thoi gian --</option>
+            <option value="sang">Buoi sang (7:00 - 11:00)</option>
+            <option value="chieu">Buoi chieu (13:00 - 17:00)</option>
+            <option value="toi">Buoi toi (18:00 - 21:00)</option>
+            <option value="ct">Cuoi tuan</option>
+          </select>
+          <span class="err" id="e-thoigian">Vui long chon thoi gian.</span>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="validate()">Gui Dang Ky</button>
+        <div class="success" id="ok">✓ Dang ky thanh cong! Chung toi se lien he trong 24h.</div>
+      </form>
+    </div>
+  </section>
+  <!-- ============================================================
+       KET THUC CAU 4
+  ============================================================ -->
+
+  <footer>
+    &copy; 2025 <span>English Learning</span> — Mo rong the gioi, ket noi tuong lai
+  </footer>
+
+
+<script>
+  /* ============================================================
+     CAU 3: Render khoa hoc tu JSON bang vong lap while
+     Dung CSS .item tu cau 2
+     (Copy phan script nay sang cau3.html)
+  ============================================================ */
+  var json = '[' +
+    '{"ten":"Tieng Anh Giao Tiep","moTa":"Phat trien ky nang noi, nghe tu co ban den nang cao.","hocPhi":"3.500.000 VND","khai":"01/06/2025"},' +
+    '{"ten":"Luyen Thi IELTS 6.5+","moTa":"Lo trinh IELTS bai ban, chien thuat thi that hieu qua.","hocPhi":"5.800.000 VND","khai":"15/06/2025"},' +
+    '{"ten":"Tieng Anh Thuong Mai","moTa":"Giao tiep doanh nghiep, viet email chuyen nghiep.","hocPhi":"4.200.000 VND","khai":"10/06/2025"},' +
+    '{"ten":"Phat Am Chuan Anh-My","moTa":"Phat am, ngu dieu chuan ban ngu, tu tin khi noi.","hocPhi":"2.000.000 VND","khai":"20/06/2025"}' +
+  ']';
+
+  var ds = JSON.parse(json);
+  var container = document.getElementById('courses-container');
+  var i = 0;
+  while (i < ds.length) {
+    var kh = ds[i];
+    var div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML =
+      '<h3>' + kh.ten + '</h3>' +
+      '<p>' + kh.moTa + '</p>' +
+      '<p class="price">' + kh.hocPhi + '</p>' +
+      '<p class="date">Khai: ' + kh.khai + '</p>';
+    container.appendChild(div);
+    i++;
+  }
+  /* ============================================================
+     KET THUC CAU 3
+  ============================================================ */
+
+  /* ============================================================
+     CAU 4: Validation form
+     (Copy phan script nay sang cau4.html)
+  ============================================================ */
+  function setErr(fId, eId, hasErr) {
+    var f = document.getElementById(fId);
+    var e = document.getElementById(eId);
+    if (hasErr) { f.classList.add('error'); e.classList.add('show'); }
+    else { f.classList.remove('error'); e.classList.remove('show'); }
+  }
+
+  function validate() {
+    var ok = true;
+
+    var ten = document.getElementById('ten').value.trim();
+    if (ten.length < 3) { setErr('ten','e-ten',true); ok=false; }
+    else setErr('ten','e-ten',false);
+
+    var email = document.getElementById('email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setErr('email','e-email',true); ok=false; }
+    else setErr('email','e-email',false);
+
+    var sdt = document.getElementById('sdt').value.trim();
+    if (!/^0\d{9}$/.test(sdt)) { setErr('sdt','e-sdt',true); ok=false; }
+    else setErr('sdt','e-sdt',false);
+
+    var kh = document.getElementById('khoahoc').value;
+    if (!kh) { setErr('khoahoc','e-khoahoc',true); ok=false; }
+    else setErr('khoahoc','e-khoahoc',false);
+
+    var tg = document.getElementById('thoigian').value;
+    if (!tg) { setErr('thoigian','e-thoigian',true); ok=false; }
+    else setErr('thoigian','e-thoigian',false);
+
+    if (ok) {
+      document.getElementById('ok').style.display = 'block';
+      document.getElementById('myForm').reset();
+    } else {
+      document.getElementById('ok').style.display = 'none';
+    }
+  }
+  /* ============================================================
+     KET THUC CAU 4
+  ============================================================ */
+</script>
+
+</body>
+</html>
