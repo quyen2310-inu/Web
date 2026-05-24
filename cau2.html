@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cau 2 - Advert va Item</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #ffffff; color: #222; }
+
+    section { padding: 52px 40px; }
+    .sec-title {
+      color: #2f63ff;
+      font-size: 1.4rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .sec-line {
+      width: 48px;
+      height: 3px;
+      background: #ffe700;
+      margin: 8px auto 28px;
+      border-radius: 2px;
+    }
+    .sec-sub {
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+    }
+
+    #item-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      padding: 0 40px 40px;
+    }
+    .item {
+      width: 210px;
+      min-height: 190px;
+      background-color: #00e56b;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 20px 14px;
+      text-align: center;
+      border-top: 4px solid #ffe700;
+      flex-shrink: 0;
+    }
+    .item h3 { font-size: 0.95rem; color: black; margin-bottom: 8px; }
+    .item p { font-size: 0.78rem; color: white; line-height: 1.6; margin-bottom: 6px; }
+    .item .price { font-size: 0.85rem; color: #ffe700; font-weight: bold; }
+    .item .date { font-size: 0.75rem; color: #2f63ff; }
+
+    .advert {
+      width: 100%;
+      height: 200px;
+      background-color: #e8fff3;
+      border: 2px solid #00e56b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #00b253;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+      cursor: default;
+    }
+    .advert:hover {
+      background-color: #00e56b;
+      border-color: #ffe700;
+      color: #ffffff;
+      font-style: italic;
+    }
+
+    @media (max-width: 599px) {
+      section { padding: 36px 16px; }
+      #item-container { padding: 0 16px 32px; }
+      .item { width: 100%; max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+  <section style="background: #ffffff;">
+    <p class="sec-title">Uu Dai Dac Biet</p>
+    <div class="sec-line"></div>
+    <p class="sec-sub">Ap dung den 30/06/2025 — Co hoi co han!</p>
+    <div class="advert">
+      🎯 &nbsp; Giam 30% hoc phi tat ca khoa hoc trong thang 6 — Dang ky ngay hom nay!
+    </div>
+  </section>
+  <div id="item-container">
+    <div class="item">
+      <h3>Tieng Anh Giao Tiep</h3>
+      <p>Phat trien ky nang noi, nghe tu co ban den nang cao.</p>
+      <p class="price">3.500.000 VND</p>
+      <p class="date">Khai: 01/06/2025</p>
+    </div>
+    <div class="item">
+      <h3>Luyen Thi IELTS 6.5+</h3>
+      <p>Lo trinh IELTS bai ban, chien thuat thi that hieu qua.</p>
+      <p class="price">5.800.000 VND</p>
+      <p class="date">Khai: 15/06/2025</p>
+    </div>
+    <div class="item">
+      <h3>Tieng Anh Thuong Mai</h3>
+      <p>Giao tiep doanh nghiep, viet email chuyen nghiep.</p>
+      <p class="price">4.200.000 VND</p>
+      <p class="date">Khai: 10/06/2025</p>
+    </div>
+    <div class="item">
+      <h3>Phat Am Chuan Anh-My</h3>
+      <p>Phat am, ngu dieu chuan ban ngu, tu tin khi noi.</p>
+      <p class="price">2.000.000 VND</p>
+      <p class="date">Khai: 20/06/2025</p>
+    </div>
+  </div>
+</body>
+</html>

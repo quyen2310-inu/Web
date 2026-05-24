@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cau 1 - Header va Navigation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #ffffff; color: #222; }
+
+    header {
+      background: #2fcbff;
+      border-bottom: 3px solid #ffe700;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    header svg { width: 50px; height: 50px; }
+    .header-text h1 {
+      color: black;
+      font-size: 1.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .header-text p {
+      color: #00b253;
+      font-size: 0.82rem;
+      margin-top: 3px;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      background: #00e56b;
+      padding: 0 40px;
+    }
+    .nav-inner { display: flex; }
+    .nav-inner div a {
+      display: block;
+      padding: 13px 20px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav-inner div a:hover {
+      background: #2fcbff;
+      color: #ffffff;
+      border-bottom-color: #ffe700;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <rect width="50" height="50" rx="8" fill="black"/>
+    <circle cx="25" cy="25" r="18" fill="#2fcbff"/>
+    <text x="13" y="31" font-family="Arial" font-size="18" font-weight="bold" fill="black">EL</text>
+  </svg>
+  <div class="header-text">
+    <h1>English Learning</h1>
+    <p>Mo rong the gioi — Ket noi tuong lai</p>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <div><a href="#">Trang chu</a></div>
+    <div><a href="#s-courses">Khoa hoc</a></div>
+    <div><a href="#s-form">Dang ky</a></div>
+  </div>
+</nav>
+
+</body>
+</html>

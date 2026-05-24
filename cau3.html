@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cau 3 - Khoa Hoc Noi Bat</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f4f7ff; color: #222; }
+    section { padding: 52px 40px; }
+    .sec-title {
+      color: #2f63ff;
+      font-size: 1.4rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .sec-line {
+      width: 48px;
+      height: 3px;
+      background: #ffe700;
+      margin: 8px auto 28px;
+      border-radius: 2px;
+    }
+    .sec-sub {
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+    }
+    #courses-container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 18px;
+    }
+    .item {
+      width: 210px;
+      min-height: 190px;
+      background-color: #00e56b;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 20px 14px;
+      text-align: center;
+      border-top: 4px solid #ffe700;
+      flex-shrink: 0;
+    }
+    .item h3 { font-size: 0.95rem; color: black; margin-bottom: 8px; }
+    .item p { font-size: 0.78rem; color: white; line-height: 1.6; margin-bottom: 6px; }
+    .item .price { font-size: 0.85rem; color: #ffe700; font-weight: bold; }
+    .item .date { font-size: 0.75rem; color: #2f63ff; }
+    @media (max-width: 1199px) and (min-width: 600px) {
+      #courses-container { flex-wrap: wrap; }
+      .item { width: 185px; }
+    }
+    @media (max-width: 599px) {
+      section { padding: 36px 16px; }
+      #courses-container { flex-wrap: wrap; justify-content: center; }
+      .item { width: 160px; height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <section id="s-courses">
+    <p class="sec-title">Khoa Hoc Noi Bat</p>
+    <div class="sec-line"></div>
+    <p class="sec-sub">Chon lo trinh phu hop voi muc tieu cua ban</p>
+    <div id="courses-container"></div>
+  </section>
+  <script>
+  var json = '[' +
+    '{"ten":"Tieng Anh Giao Tiep","moTa":"Phat trien ky nang noi, nghe tu co ban den nang cao.","hocPhi":"3.500.000 VND","khai":"01/06/2025"},' +
+    '{"ten":"Luyen Thi IELTS 6.5+","moTa":"Lo trinh IELTS bai ban, chien thuat thi that hieu qua.","hocPhi":"5.800.000 VND","khai":"15/06/2025"},' +
+    '{"ten":"Tieng Anh Thuong Mai","moTa":"Giao tiep doanh nghiep, viet email chuyen nghiep.","hocPhi":"4.200.000 VND","khai":"10/06/2025"},' +
+    '{"ten":"Phat Am Chuan Anh-My","moTa":"Phat am, ngu dieu chuan ban ngu, tu tin khi noi.","hocPhi":"2.000.000 VND","khai":"20/06/2025"}' +
+  ']';
+
+  var ds = JSON.parse(json);
+  var container = document.getElementById('courses-container');
+  var i = 0;
+  while (i < ds.length) {
+    var kh = ds[i];
+    var div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML =
+      '<h3>' + kh.ten + '</h3>' +
+      '<p>' + kh.moTa + '</p>' +
+      '<p class="price">' + kh.hocPhi + '</p>' +
+      '<p class="date">Khai: ' + kh.khai + '</p>';
+    container.appendChild(div);
+    i++;
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cau 4 - Form Dang Ky</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f4f7ff; color: #222; padding: 0; }
+
+    section { padding: 52px 40px; }
+    .sec-title {
+      color: #2f63ff;
+      font-size: 1.4rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .sec-line {
+      width: 48px;
+      height: 3px;
+      background: #ffe700;
+      margin: 8px auto 28px;
+      border-radius: 2px;
+    }
+    .sec-sub {
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+    }
+
+    .form-section { background: #f4f7ff; }
+    .form-wrap {
+      background: #ffffff;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 32px 36px;
+      border-radius: 8px;
+      border: 1px solid #e0e8ff;
+      border-top: 4px solid #2f63ff;
+      box-shadow: 0 4px 16px rgba(47,99,255,0.08);
+    }
+    .form-group { margin-bottom: 15px; }
+    label {
+      display: block;
+      font-weight: bold;
+      color: #2f63ff;
+      margin-bottom: 5px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px 13px;
+      border: 1px solid #ccd6ff;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-family: Arial, sans-serif;
+      background: #f9fbff;
+      color: #222;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus { border-color: #2f63ff; background: #ffffff; }
+    input.error, select.error { border-color: #ff4444; }
+    .err { display: none; color: #ff4444; font-size: 0.78rem; margin-top: 3px; }
+    .err.show { display: block; }
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background: #2f63ff;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 6px;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #00e56b; color: #ffffff; }
+    .success {
+      display: none;
+      margin-top: 12px;
+      background: #e8fff3;
+      border: 2px solid #00e56b;
+      color: #00b253;
+      padding: 12px;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+    }
+    @media (min-width: 1200px) {
+      section { padding-left: 80px; padding-right: 80px; }
+      .form-wrap { max-width: 560px; }
+    }
+    @media (max-width: 1199px) and (min-width: 600px) {
+      .form-wrap { max-width: 480px; }
+    }
+    @media (max-width: 599px) {
+      section { padding: 36px 16px; }
+      .form-wrap { padding: 22px 16px; }
+      .btn-submit { font-size: 0.95rem; }
+      input, select { font-size: 0.88rem; }
+    }
+  </style>
+</head>
+<body>
+  <section class="form-section" id="s-form">
+    <p class="sec-title">Dang Ky Khoa Hoc</p>
+    <div class="sec-line"></div>
+    <p class="sec-sub">Dien thong tin, chung toi se lien he trong 24h</p>
+    <div class="form-wrap">
+      <form id="myForm" novalidate>
+
+        <div class="form-group">
+          <label for="ten">Ho va ten *</label>
+          <input type="text" id="ten" placeholder="Nguyen Van A">
+          <span class="err" id="e-ten">Vui long nhap ho va ten (it nhat 3 ky tu).</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Dia chi email *</label>
+          <input type="email" id="email" placeholder="example@email.com">
+          <span class="err" id="e-email">Vui long nhap email hop le.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="sdt">So dien thoai *</label>
+          <input type="tel" id="sdt" placeholder="0901234567">
+          <span class="err" id="e-sdt">So dien thoai 10 chu so, bat dau bang 0.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="khoahoc">Khoa hoc *</label>
+          <select id="khoahoc">
+            <option value="">-- Chon khoa hoc --</option>
+            <option value="gt">Tieng Anh Giao Tiep</option>
+            <option value="ielts">Luyen Thi IELTS 6.5+</option>
+            <option value="tm">Tieng Anh Thuong Mai</option>
+            <option value="pa">Phat Am Chuan Anh-My</option>
+          </select>
+          <span class="err" id="e-khoahoc">Vui long chon khoa hoc.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="thoigian">Thoi gian uu tien *</label>
+          <select id="thoigian">
+            <option value="">-- Chon thoi gian --</option>
+            <option value="sang">Buoi sang (7:00 - 11:00)</option>
+            <option value="chieu">Buoi chieu (13:00 - 17:00)</option>
+            <option value="toi">Buoi toi (18:00 - 21:00)</option>
+            <option value="ct">Cuoi tuan</option>
+          </select>
+          <span class="err" id="e-thoigian">Vui long chon thoi gian.</span>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="validate()">Gui Dang Ky</button>
+        <div class="success" id="ok">✓ Dang ky thanh cong! Chung toi se lien he trong 24h.</div>
+      </form>
+    </div>
+  </section>
+
+<script>
+  function setErr(fId, eId, hasErr) {
+    var f = document.getElementById(fId);
+    var e = document.getElementById(eId);
+    if (hasErr) { f.classList.add('error'); e.classList.add('show'); }
+    else { f.classList.remove('error'); e.classList.remove('show'); }
+  }
+
+  function validate() {
+    var ok = true;
+
+    var ten = document.getElementById('ten').value.trim();
+    if (ten.length < 3) { setErr('ten','e-ten',true); ok=false; }
+    else setErr('ten','e-ten',false);
+
+    var email = document.getElementById('email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setErr('email','e-email',true); ok=false; }
+    else setErr('email','e-email',false);
+
+    var sdt = document.getElementById('sdt').value.trim();
+    if (!/^0\d{9}$/.test(sdt)) { setErr('sdt','e-sdt',true); ok=false; }
+    else setErr('sdt','e-sdt',false);
+
+    var kh = document.getElementById('khoahoc').value;
+    if (!kh) { setErr('khoahoc','e-khoahoc',true); ok=false; }
+    else setErr('khoahoc','e-khoahoc',false);
+
+    var tg = document.getElementById('thoigian').value;
+    if (!tg) { setErr('thoigian','e-thoigian',true); ok=false; }
+    else setErr('thoigian','e-thoigian',false);
+
+    if (ok) {
+      document.getElementById('ok').style.display = 'block';
+      document.getElementById('myForm').reset();
+    } else {
+      document.getElementById('ok').style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>
